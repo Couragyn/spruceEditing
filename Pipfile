@@ -9,6 +9,7 @@ django-summernote = "*"
 django-crispy-forms = "*"
 django-heroku = "*"
 psycopg2-binary = "*"
+django-environ = "*"
 
 [dev-packages]
 
