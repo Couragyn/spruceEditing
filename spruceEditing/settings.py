@@ -143,12 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-PREPEND_WWW = True
-BASE_URL = 'https://www.spruceediting.com'
+
 ALLOWED_HOSTS = ['spruceediting.com', 'www.spruceediting.com']
 
 # Static files (CSS, JavaScript, Images)
