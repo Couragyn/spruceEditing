@@ -1,0 +1,5 @@
+django
+gunicorn
+django-heroku
+crispy_forms
+django_summernote
