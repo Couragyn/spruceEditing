@@ -27,7 +27,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -143,9 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SECURE_SSL_REDIRECT = False
-PREPEND_WWW = True
-BASE_URL = 'https://www.spruceediting.com'
 ALLOWED_HOSTS = ['spruceediting.com', 'www.spruceediting.com']
 
 # Static files (CSS, JavaScript, Images)
