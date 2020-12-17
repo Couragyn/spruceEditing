@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
+from django.views.generic import TemplateView
 
 sitemaps = {
     "posts": PostSitemap,
@@ -27,7 +28,9 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='../templates/index.html'), name='index'),
     path('', include('blog.urls')),
+    path('services/', TemplateView.as_view(template_name='../templates/services.html'), name='services'),
     path('summernote/', include('django_summernote.urls')),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 ]
