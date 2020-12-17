@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+import django_heroku
 
 env = environ.Env()
 # reading .env file
@@ -153,3 +154,6 @@ STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'static')
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+django_heroku.settings(locals())
