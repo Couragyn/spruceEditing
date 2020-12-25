@@ -27,6 +27,15 @@ body {
     box-shadow: 0 16px 48px #E3E7EB;
 }
 
+.top-buffer { 
+    margin-top:200px; 
+}
+
+label.required::after {
+    content: ' *';
+    color: red;
+}
+
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
 	.navbar .nav-item:hover .nav-link{ color: #fff;  }

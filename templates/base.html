@@ -17,7 +17,7 @@
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
+        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light shadow mb-3" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand active" href="{% url 'index' %}">Spruce and Polish Editing</a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -30,10 +30,10 @@
                             </ul>
                         </li>
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Testimonials</a>
+                            <a class="nav-link text-black font-weight-bold" href="{% url 'testimonials' %}">Testimonials</a>
                         </li>
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Our Editors</a>
+                            <a class="nav-link text-black font-weight-bold" href="{% url 'editors' %}">Our Editors</a>
                         </li>                        
                         <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="#">Get a Quote</a>
