@@ -12,6 +12,7 @@ psycopg2-binary = "*"
 django-environ = "*"
 django-gunicorn = "*"
 whitenoise = "*"
+django-mailgun = "*"
 
 [dev-packages]
 

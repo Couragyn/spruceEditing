@@ -31,6 +31,8 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='../templates/index.html'), name='index'),
     path('', include('blog.urls')),
     path('services/', TemplateView.as_view(template_name='../templates/services.html'), name='services'),
+    path('testimonials/', TemplateView.as_view(template_name='../templates/testimonials.html'), name='testimonials'),
+    path('editors/', TemplateView.as_view(template_name='../templates/editors.html'), name='editors'),
     path('summernote/', include('django_summernote.urls')),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 ]
