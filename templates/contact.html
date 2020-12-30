@@ -6,7 +6,7 @@
 			<i>{{ request.session.sendmessage }}</i>
 		{% endif %}
 		 
-		<form class="form" action="[ The send_contact form url ]" method="POST">{% csrf_token %}
+		<form class="form" action="../send-contact/" method="POST">{% csrf_token %}
 			<label>Name:</label>
 			<input class="form-control" name="name" id="name">
 			<label>Email:</label>
