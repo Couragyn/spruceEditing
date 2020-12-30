@@ -13,7 +13,7 @@ def send_contact(request):
 	html_message="<html>You received a new message from the contact form. Name:" + name + "Email Address:" + email + "Subject:" + subject + "&lt;br/&gt;Message:" + message + "</html>")
 	request.session['sendmessage'] = "Message Has Been Sent"
 
-	return HttpResponseRedirect('contact/')
+	return HttpResponseRedirect('../contact/')
 
 def contact_page(request):
 	return render(request, "contact.html")
