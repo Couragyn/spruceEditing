@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "17d2d50f6e9f66c518fae5c86e53aeb5a5e11d64f7e90cc5a7710605045e24d7"
+            "sha256": "01997b46b31a715845d07fb628de7d5ad3443d8e1d4ba8a49a5aca82f60ea95d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -51,6 +51,14 @@
             ],
             "index": "pypi",
             "version": "==3.1.4"
+        },
+        "django-anymail": {
+            "hashes": [
+                "sha256:0301f2ea1dde7840e5276a5e2d1ca2a56fd558e2b71800e89ca895c18aa3c615",
+                "sha256:0c3e56a339a37e654b7511572564fe0949f4fbb12c072761c9e35cfc49cb4dc1"
+            ],
+            "index": "pypi",
+            "version": "==8.1"
         },
         "django-crispy-forms": {
             "hashes": [

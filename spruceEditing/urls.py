@@ -21,10 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.views.generic import TemplateView
-from main.views import(
-   contact_page,
-   send_contact,
-)
+
 
 sitemaps = {
     "posts": PostSitemap,
@@ -40,8 +37,7 @@ urlpatterns = [
     path('editors/', TemplateView.as_view(template_name='../templates/editors.html'), name='editors'),
     path('summernote/', include('django_summernote.urls')),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
-    url(r'^contact/$', contact_page),
-    url(r'^send-contact/$', send_contact),
+    path('', include('main.urls')),
 ]
 
 if settings.DEBUG:
