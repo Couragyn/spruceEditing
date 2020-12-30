@@ -6,17 +6,32 @@
 			<i>{{ request.session.sendmessage }}</i>
 		{% endif %}
 		 
-		<form class="form" action="../send-contact/" method="POST">{% csrf_token %}
-			<label>Name:</label>
-			<input class="form-control" name="name" id="name">
-			<label>Email:</label>
-			<input class="form-control" type="email" name="email" id="email">
-			<label>Subject:</label>
-			<input class="form-control" name="subject" id="subject">
-			<label>Message:</label>
-			<textarea class="form-control" name="message" id="message"></textarea>
-
-			<button class="btn btn-primary" type="submit">Send</button>
+		<form class="form" action="../send-contact/" method="POST">
+			<div class="form-group">
+				<div class="form-group">
+					<label for="nameInput">Name:</label>
+	    			<input type="text" class="form-control" id="nameInput" placeholder="Enter name" required>
+	    		</div>
+				<div class="form-group">
+					<label for="emailInput">Email:</label>
+	    			<input type="email" class="form-control" id="emailInput" placeholder="Enter email" required>
+	    		</div>
+				<div class="form-group">
+					<label for="phoneInput">Phone Number:</label>
+	    			<input type="text" class="form-control" id="phoneInput" placeholder="Enter phone number">
+	    		</div>
+				<div class="form-group">
+					<label for="messageInput">Message: </label>
+					<textarea class="form-control" id="messageInput" rows="3" placeholder="Message Details" required></textarea>
+				</div>
+				<div class="form-group">
+					<div class="custom-file">
+						<label class="custom-file-label" for="fileUpload">Choose file...</label>
+						<input type="file" class="custom-file-input" id="fileUpload">
+					</div>
+				</div>
+				<button class="btn btn-primary" type="submit">Send</button>
+			</div>
 		</form>
 	</div>
 {%endblock%}
