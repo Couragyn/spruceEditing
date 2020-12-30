@@ -1,0 +1,10 @@
+.entry:not(:first-of-type)
+{
+    margin-top: 100px;
+}
+
+.glyphicon
+{
+    font-size: 120px;
+}
+

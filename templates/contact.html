@@ -1,25 +1,55 @@
 {% extends "base.html" %} 
-<script>
-	$('#fileUpload').on('change',function(){
-		var fileName = $e.target.files[0].name;
-		$(this).next('.custom-file-label').html(fileName);
-	})
-</script>
 {% block content %}
 
+<script>
+	var head = document.getElementsByTagName("head")[0],
+	    cssLink = document.createElement("link");
+	cssLink.href = "/static/css/upload.css";
+	cssLink.rel="stylesheet";
+	cssLink.type="text/css";
+	head.appendChild(cssLink);
+
+	$(function(){
+	    $(document).on('click', '.btn-add', function(e)
+	    {
+	        e.preventDefault();
+
+	        var controlForm = $('.controls:first'),
+	            currentEntry = $(this).parents('.entry:first'),
+	            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+	        newEntry.find('input').val('');
+	        controlForm.find('.entry:not(:last) .btn-add')
+	            .removeClass('btn-add').addClass('btn-remove')
+	            .removeClass('btn-success').addClass('btn-danger')
+	            .html('<span class="glyphicon glyphicon-minus"></span>');
+	    }).on('click', '.btn-remove', function(e)
+	    {
+	      $(this).parents('.entry:first').remove();
+
+			e.preventDefault();
+			return false;
+		});
+	});
+
+</script>
+
     <div class="container">
+    	<p>test</p>
+
+
         {% if request.session.sendmessage %}
 			<i>{{ request.session.sendmessage }}</i>
 		{% endif %}
 		 
-		<form class="form" action="../send-contact/" method="POST">
+		<form class="form" action="../send-contact/" method="POST">{% csrf_token %}
 			<div class="form-group">
 				<div class="form-group">
-					<label for="nameInput">Name:</label>
+					<label for="nameInput" class="required">Name:</label>
 	    			<input type="text" class="form-control" id="nameInput" placeholder="Enter name" required>
 	    		</div>
 				<div class="form-group">
-					<label for="emailInput">Email:</label>
+					<label for="emailInput" class="required">Email:</label>
 	    			<input type="email" class="form-control" id="emailInput" placeholder="Enter email" required>
 	    		</div>
 				<div class="form-group">
@@ -27,14 +57,26 @@
 	    			<input type="text" class="form-control" id="phoneInput" placeholder="Enter phone number">
 	    		</div>
 				<div class="form-group">
-					<label for="messageInput">Message: </label>
+					<label for="messageInput" class="required">Message: </label>
 					<textarea class="form-control" id="messageInput" rows="3" placeholder="Message Details" required></textarea>
 				</div>
 				<div class="form-group">
-					<div class="custom-file">
-						<input id="fileUpload" type="file" class="file"  data-show-upload="true" data-show-caption="true" multiple>
-						<label class="custom-file-label" for="fileUpload">Choose files...</label>
-					</div>
+
+
+
+								<label class="control-label" for="field1">Upload Files: </label>
+								<div class="controls">
+									<div class="entry input-group">
+									<input class="btn btn-primary" name="fields[]" type="file">
+									<span class="input-group-btn">
+										<button class="btn btn-success btn-add" type="button">
+										<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</span>
+									</div>
+								</div>
+
+
 				</div>
 				<button class="btn btn-primary" type="submit">Send</button>
 			</div>
