@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'django_summernote',
+    'anymail',
 ]
 
 MIDDLEWARE = [
