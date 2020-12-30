@@ -1,4 +1,10 @@
 {% extends "base.html" %} 
+<script>
+	$('#fileUpload').on('change',function(){
+		var fileName = $e.target.files[0].name;
+		$(this).next('.custom-file-label').html(fileName);
+	})
+</script>
 {% block content %}
 
     <div class="container">
@@ -26,8 +32,8 @@
 				</div>
 				<div class="form-group">
 					<div class="custom-file">
-						<label class="custom-file-label" for="fileUpload">Choose file...</label>
-						<input type="file" class="custom-file-input" id="fileUpload">
+						<input id="fileUpload" type="file" class="file"  data-show-upload="true" data-show-caption="true" multiple>
+						<label class="custom-file-label" for="fileUpload">Choose files...</label>
 					</div>
 				</div>
 				<button class="btn btn-primary" type="submit">Send</button>
