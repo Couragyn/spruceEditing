@@ -2,73 +2,89 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import EmailMessage
 from .forms import UploadForm
-from .models import Document
+from django.views import View
 
 
-def send_contact(request):
-	request = request
-	files = request.FILES
-	post = request.POST
-	name = request.POST.get("nameInput")
-	email = request.POST.get("emailInput")
-	phone = request.POST.get("phoneInput")
-	message = request.POST.get("messageInput")
-	attachments = request.POST.get("attached[]")
+# def send_contact(request):
+# 	name = request.POST.get("nameInput")
+# 	email = request.POST.get("emailInput")
+# 	phone = request.POST.get("phoneInput")
+# 	message = request.POST.get("messageInput")
 
-	# form = UploadFileForm(request.POST, request.FILES)
-	# if form.is_valid():
-	# 	form.save()
+# 	email_body = "<html>You received a new message from the contact form. </ br> Name:" + name + "Email Address:" + email + "Phone:" + phone + "&lt;br/&gt;Message:" + message + "</html>"
 
-	# form = UploadForm(request.POST, request.FILES)
- #    files = request.FILES.getlist('attached[]')
-	# if form.is_valid():
-	# 	for f in files:
-	# 		full_email.attach_file(f)
-	# else:
-	# 	form = UploadForm()
+# 	full_email = EmailMessage("New Contact Form Message", email_body, email, ["SpruceEditing@gmail.com"])
+
+# 	form = UploadForm(request.POST, request.FILES)
+# 	files = request.FILES.getlist('attached[]')
+# 	for f in files:
+# 		full_email.attach(f.name, f.read(), f.content_type)
+
+# 	full_email.send()
+# 	request.session['sendmessage'] = "Message Has Been Sent"
+
+# 	return HttpResponseRedirect('../contact/')
 
 
-
-	email_body = "<html>You received a new message from the contact form. </ br> Name:" + name + "Email Address:" + email + "Phone:" + phone + "&lt;br/&gt;Message:" + message + "</html>"
- 
-
-	full_email = EmailMessage("New Contact Form Message", email_body, email, ["SpruceEditing@gmail.com"])
-
-	form = UploadForm(request.POST, request.FILES)
-	files = request.FILES.getlist('attached[]')
-	# files1 = request.FILES.getlist()
-	files21 = request.FILES
-	for f in files:
-		full_email.attach(f.name, f.read(), f.content_type)
-		fname = f.name
-		fread = f.read()
-		fcont = f.content_type
+class contact_page_view(View):
+	form_class = UploadForm
+	template_name = 'contact.html'
 
 
-	full_email.send()
-	request.session['sendmessage'] = "Message Has Been Sent"
+	def get(self, request, *args, **kwargs):
+		form = self.form_class()
+		return render(request, self.template_name, {'email_form': form})
 
-	return HttpResponseRedirect('../contact/')
+	def post(self, request, *args, **kwargs):
+		form = self.form_class(request.POST, request.FILES)
 
-def contact_page(request):
-	return render(request, "contact.html")
+		if form.is_valid():
+
+			name = form.cleaned_data['name']
+			email = form.cleaned_data['email']
+			phone = form.cleaned_data['phone']
+			message = form.cleaned_data['message']
+			attached = request.FILES.getlist('file_field')
+
+			try:
+				email_body = "<html>You received a new message from the contact form. </ br></ br> Name:" + name + "Email Address:" + email + "Phone:" + phone + "&lt;br/&gt;Message:" + message + "</html>"
+				mail = EmailMessage("New Contact Form Message", email_body, email, ["SpruceEditing@gmail.com"])
+				for f in files:
+					mail.attach(f.name, f.read(), f.content_type)
+				mail.send()
+				return render(request, self.template_name, {'email_form': form, 'error_message': 'Email successfully sent to SpruceEditing@gmail.com'})
+			except:
+				return render(request, self.template_name, {'email_form': form, 'error_message': 'Either the attachment is too big or corrupt'})
+
+		return render(request, self.template_name, {'email_form': form, 'error_message': 'Unable to send email. Please try again later'})
+
+    # Single File Attachment
+    # def post(self, request, *args, **kwargs):
+    #     form = self.form_class(request.POST, request.FILES)
+
+    #     if form.is_valid():
+            
+    #         subject = form.cleaned_data['subject']
+    #         message = form.cleaned_data['message']
+    #         email = form.cleaned_data['email']
+    #         attach = request.FILES['attach']
+
+    #         try:
+    #             mail = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [email])
+    #             mail.attach(attach.name, attach.read(), attach.content_type)
+    #             mail.send()
+    #             return render(request, self.template_name, {'email_form': form, 'error_message': 'Sent email to %s'%email})
+    #         except:
+    #             return render(request, self.template_name, {'email_form': form, 'error_message': 'Either the attachment is too big or corrupt'})
+
+    #     return render(request, self.template_name, {'email_form': form, 'error_message': 'Unable to send email. Please try again later'})
 
 
-# class contact_page(FormView):
-# 	# return render(request, "contact.html")
 
 
-# 	form_class = ContactForm
-# 	template_name = 'contact.html'  
-# 	success_url = '../contact/'
 
-# 	def post(self, request, *args, **kwargs):
-# 		form_class = self.get_form_class()
-# 		form = self.get_form(form_class)
-# 		files = request.FILES.getlist('file_field')
-# 		if form.is_valid():
-# 			for f in files:
-# 				print(yo)
-# 			return self.form_valid(form)
-# 		else:
-			# return self.form_invalid(form)
+
+
+
+# def contact_page(request):
+# 	return render(request, "contact.html")
