@@ -38,11 +38,11 @@ def send_contact(request):
 	files = request.FILES.getlist('attached[]')
 	# files1 = request.FILES.getlist()
 	files21 = request.FILES
-	if form.is_valid():
-		for f in files:
-			full_email.attach(f.name, f.read(), f.content_type)
-	else:
-		form = UploadForm()
+	for f in files:
+		full_email.attach(f.name, f.read(), f.content_type)
+		fname = f.name
+		fread = f.read()
+		fcont = f.content_type
 
 
 	full_email.send()
