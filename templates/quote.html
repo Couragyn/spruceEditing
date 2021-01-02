@@ -1,6 +1,38 @@
 {% extends "base.html" %} 
 {% block content %}
+{% load crispy_forms_tags %}
 
- 
+  <div class="container">
+    <div class="row">
+      	<div class="col-md-8 float-right">
+			<h2 class="card-title">Get A Quote</h2>
 
+          {% if error_message %}
+          <div class="alert alert-primary" role="alert">
+            {{error_message}}
+          </div>
+          {% endif %}
+
+          {% if email_form %}
+          <form method="POST" action ="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{email_form|crispy}}
+          <button type="submit" class="btn btn-primary">Send Email</button>
+          </form>
+          {% endif %}
+
+      </div>
+      			<div class="col-md-4 float-right pt-5">
+                  	<h5 class="card-header">Pricing Breakdown</h5>
+				  <div class="card-body">
+				      <ul>
+				      	<li>This work is $x per works</li>
+				      	<li>This work is $x per hour</li>
+				      </ul>
+				      <p> we're willing to work with you, bla bla bla</p>
+				  </div>
+				</div>
+			</div>
+    </div>
+  </div>
 {%endblock%}
