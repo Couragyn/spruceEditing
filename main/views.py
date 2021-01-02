@@ -10,7 +10,7 @@ def send_contact(request):
 	message = request.POST.get("messageInput")
  
 	send_mail("New Contact Form Message", message, email, ["SpruceEditing@gmail.com"],
-	html_message="<html>You received a new message from the contact form. </ br> Name:" + name + "Email Address:" + email + "Subject:" + subject + "&lt;br/&gt;Message:" + message + "</html>")
+	html_message="<html>You received a new message from the contact form. </ br> Name:" + name + "Email Address:" + email + "Phone:" + phone + "&lt;br/&gt;Message:" + message + "</html>")
 	request.session['sendmessage'] = "Message Has Been Sent"
 
 	return HttpResponseRedirect('../contact/')
