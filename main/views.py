@@ -40,11 +40,10 @@ def send_contact(request):
 	files21 = request.FILES
 	if form.is_valid():
 		for f in files:
-			full_email.attach_file(f)
+			full_email.attach(f.name, f.read(), f.content_type)
 	else:
 		form = UploadForm()
 
-	# full_email.attach_file(attachments)
 
 	full_email.send()
 	request.session['sendmessage'] = "Message Has Been Sent"
