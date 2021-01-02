@@ -22,7 +22,7 @@
 	        controlForm.find('.entry:not(:last) .btn-add')
 	            .removeClass('btn-add').addClass('btn-remove')
 	            .removeClass('btn-success').addClass('btn-danger')
-	            .html('<span class="glyphicon glyphicon-minus"></span>');
+	            .html('<span class="fas fa-minus"></span>');
 	    }).on('click', '.btn-remove', function(e)
 	    {
 	      $(this).parents('.entry:first').remove();
@@ -64,17 +64,17 @@
 
 
 
-								<label class="control-label" for="field1">Upload Files: </label>
-								<div class="controls">
-									<div class="entry input-group">
-									<input class="btn btn-primary" name="fields[]" type="file">
-									<span class="input-group-btn">
-										<button class="btn btn-success btn-add" type="button">
-										<span class="glyphicon glyphicon-plus"></span>
-										</button>
-									</span>
-									</div>
-								</div>
+				<label class="control-label" for="field1">Upload Files: </label>
+				<div class="controls">
+					<div class="entry input-group">
+						<input class="btn upload-textarea" name="fields[]" type="file">
+						<span class="input-group-btn">
+							<button class="btn btn-success btn-add" type="button">
+								<i class="fas fa-plus"></i>
+							</button>
+						</span>
+					</div>
+				</div>
 
 
 				</div>

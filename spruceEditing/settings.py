@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_summernote',
     'anymail',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [

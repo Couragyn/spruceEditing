@@ -3,8 +3,15 @@
     margin-top: 100px;
 }
 
-.glyphicon
+.fas
 {
     font-size: 120px;
 }
 
+.upload-textarea {
+	width: 95%;
+}
+
+.entry:not(:first-of-type) {
+	margin-top: 0px;
+}

@@ -14,6 +14,7 @@ django-gunicorn = "*"
 whitenoise = "*"
 django-mailgun = "*"
 django-anymail = "*"
+fontawesome-free = "*"
 
 [dev-packages]
 
