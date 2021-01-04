@@ -1,20 +1,12 @@
 {% extends "base.html" %} 
 {% block content %}
 
-    <header class="masthead">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class=" col-md-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h3 class=" site-heading my-4 mt-3"> Welcome to my awesome Blog </h3>
-                        <p class="">Another line
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <div class="hero-image" id="blog_hero">
+        <div class="hero-text">
+            <h1>Witty Name for a Blog</h1>
         </div>
-    </header>
+    </div>
+
     <div class="container">
         <div class="row">
             <!-- Blog Entries Column -->
@@ -31,13 +23,13 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 float-right ">
-          <div class="card my-4">
-                  <h5 class="card-header">Permanent sidebar</h5>
-              <div class="card-body">
-                  <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed lorem non nibh condimentum tristique ultricies et augue. Vivamus a congue orci. Sed lorem sapien, porttitor vel ultrices nec, vehicula id sem. Aenean pretium imperdiet cursus. In hac habitasse platea dictumst. Proin efficitur, leo eget volutpat tincidunt, purus neque malesuada est, eget dignissim libero mauris eu lorem. Aliquam vel erat vitae arcu dictum dapibus.</p>
-              </div>
-          </div>
+        <div class="col-md-4 float-right float">
+            <div class="card my-4">
+                <h5 class="card-header">Title here if you want</h5>
+                <div class="card-body">
+                    <p class="card-text"> Descriptor for the blog. <br><br>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed lorem non nibh condimentum tristique ultricies et augue. Vivamus a congue orci. Sed lorem sapien, porttitor vel ultrices nec, vehicula id sem. Aenean pretium imperdiet cursus. In hac habitasse platea dictumst. Proin efficitur, leo eget volutpat tincidunt, purus neque malesuada est, eget dignissim libero mauris eu lorem. Aliquam vel erat vitae arcu dictum dapibus.</p>
+                </div>
+            </div>
         </div>
 
     </div>

@@ -20,9 +20,13 @@
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light shadow mb-3" id="mainNav">
+        <nav class="navbar navbar-fixed-top fixed-top navbar-expand-lg navbar-light bg-light shadow mb-3" id="mainNav">
             <div class="container-fluid">
-                <a class="navbar-brand active" href="{% url 'index' %}">Spruce and Polish Editing</a>
+                <a class="navbar-brand active" href="{% url 'index' %}">Spruce &amp; Polish Editing</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown text-black">
@@ -56,7 +60,7 @@
         {% endblock content %}
         <!-- Footer -->
         <footer class="py-3 bg-grey">
-            <p class="m-0 text-dark text-center ">Copyright &copy; Spruce and Polish Editing</p>
+            <p class="m-0 text-dark text-center ">Copyright &copy; Spruce &amp; Polish Editing</p>
         </footer>
     </body>
 </html>

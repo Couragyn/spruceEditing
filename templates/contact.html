@@ -2,29 +2,34 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9 float-left ">
-				<h2 class="card-title">Contact Us</h2>
-				{% if error_message %}
-				<div class="alert alert-primary" role="alert">
-					{{error_message}}
-				</div>
-				{% endif %}
+  <div class="hero-image" id="contact_hero">
+      <div class="hero-text">
+          <h1>Contact Us</h1>
+      </div>
+  </div>
 
-				{% if email_form %}
-				<form method="POST" action ="" enctype="multipart/form-data">
-					{% csrf_token %}
-					{{email_form|crispy}}
-					<button type="submit" class="btn btn-primary">Send Email</button>
-				</form>
-				{% endif %}
-			</div>
-			<div class="col-md-3 float-right pt-5">
+	<div class="container">
+    	<div class="col-md-12 mt-3">
+			<div class="row">
+				<div class="col-md-9 float-left ">
+					{% if error_message %}
+					<div class="alert alert-primary" role="alert">
+						{{error_message}}
+					</div>
+					{% endif %}
+
+					{% if email_form %}
+					<form method="POST" action ="" enctype="multipart/form-data">
+						{% csrf_token %}
+						{{email_form|crispy}}
+						<button type="submit" class="btn btn-primary">Send Email</button>
+					</form>
+					{% endif %}
+				</div>
+				<div class="col-md-3 float-right pt-5">
 				  <div class="card-body">
 				      <p class="card-text">Please fill out the form or send us a direct email. We looks forward to hearing from you!</p>
 				      <a href="mailto:SpruceEditing@gmail.com" target="_blank">SpruceEditing@gmail.com</a>
-
 				  </div>
 				</div>
 			</div>

@@ -8,7 +8,9 @@ quote_choices = [
     ('Newspaper & Magazine Articles', 'Newspaper & Magazine Articles'),
     ('Short- & Long-form Fiction', 'Short- & Long-form Fiction'),
     ('Short- & Long-form Creative Nonfiction', 'Short- & Long-form Creative Nonfiction'),
-
+    ('Beta Reading', 'Beta Reading'),
+    ("Children's Books", "Children's Books"),
+    ("Other", "Other"),
 ]
 
 class ContactForm(forms.Form):
@@ -26,5 +28,5 @@ class QuoteForm(forms.Form):
         widget=forms.CheckboxSelectMultiple,
         choices=quote_choices,
     )
-	details_for_quote = forms.CharField(widget=forms.Textarea)
+	tell_us_about_your_document = forms.CharField(widget=forms.Textarea)
 	documents = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
