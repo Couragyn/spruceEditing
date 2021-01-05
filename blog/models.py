@@ -7,6 +7,7 @@ STATUS = (
     (1,"Publish")
 )
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -30,7 +31,6 @@ class Comment(models.Model):
     email = models.EmailField(blank=True)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
     required_css_class = 'required'
 
     class Meta:

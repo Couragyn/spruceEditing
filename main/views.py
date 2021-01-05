@@ -32,8 +32,7 @@ class contact_view(View):
 				for f in attached:
 					mail.attach(f.name, f.read(), f.content_type)
 				mail.send()
-				form = self.form_class()
-				return render(request, self.template_name, {'email_form': form, 'error_message': 'Email successfully sent to SpruceEditing@gmail.com'})
+				return render(request.GET, self.template_name, {'email_form': form, 'error_message': 'Email successfully sent to SpruceEditing@gmail.com'})
 			except:
 				return render(request, self.template_name, {'email_form': form, 'error_message': 'Error sending email. Please make sure attachements are under 10mb and try again later. '})
 
@@ -67,8 +66,7 @@ class quote_view(View):
 				for f in documents:
 					mail.attach(f.name, f.read(), f.content_type)
 				mail.send()
-				form = self.form_class()
-				return render(request, self.template_name, {'quote_form': form, 'error_message': 'Email successfully sent to SpruceEditing@gmail.com'})
+				return render(request.GET, self.template_name, {'quote_form': form, 'error_message': 'Email successfully sent to SpruceEditing@gmail.com'})
 			except:
 				return render(request, self.template_name, {'quote_form': form, 'error_message': 'Error sending email. Please make sure attachements are under 10mb and try again later. '})
 

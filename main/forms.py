@@ -1,4 +1,5 @@
 from django import forms
+from captcha.fields import ReCaptchaField
 
 quote_choices = [
     ('Academic Papers', 'Academic Papers'),
@@ -14,19 +15,21 @@ quote_choices = [
 ]
 
 class ContactForm(forms.Form):
-	name = forms.CharField(max_length=80)
-	email = forms.EmailField()
-	phone= forms.CharField(max_length=15, required=False)
-	message = forms.CharField(widget=forms.Textarea)
-	attachments = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    name = forms.CharField(max_length=80)
+    email = forms.EmailField()
+    phone= forms.CharField(max_length=15, required=False)
+    message = forms.CharField(widget=forms.Textarea)
+    attachments = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    captcha = ReCaptchaField()
 
 class QuoteForm(forms.Form):
-	name = forms.CharField(max_length=80)
-	email = forms.EmailField()
-	type_of_work = forms.MultipleChoiceField(
+    name = forms.CharField(max_length=80)
+    email = forms.EmailField()
+    type_of_work = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=quote_choices,
     )
-	tell_us_about_your_document = forms.CharField(widget=forms.Textarea)
-	documents = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    tell_us_about_your_document = forms.CharField(widget=forms.Textarea)
+    documents = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    captcha = ReCaptchaField()

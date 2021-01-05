@@ -15,6 +15,7 @@ whitenoise = "*"
 django-mailgun = "*"
 django-anymail = "*"
 fontawesome-free = "*"
+django-recaptcha = "*"
 
 [dev-packages]
 

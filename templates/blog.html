@@ -11,20 +11,23 @@
     <div class="container">
         <div class="row">
             <!-- Blog Entries Column -->
-            <div class="col-md-8 mt-3 float-left">
+            <div class="col-md-12 mt-3 float-left">
                 {% for post in post_list %}
+                <div class="row">
                     <div class="card mb-5">
                         <div class="card-body">
                             <h2 class="card-title">{{ post.title }}</h2>
                             <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                            <p class="card-text">{{post.content|safe|slice:":400" }}...</p>
+                            <p class="card-text">{{post.content|striptags|slice:":400" }}...</p>
                             <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                         </div>
                     </div>
+                </div>
+
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 float-right float">
+<!--         <div class="col-md-4 float-right float">
             <div class="card my-4">
                 <h5 class="card-header">Title here if you want</h5>
                 <div class="card-body">
@@ -32,7 +35,7 @@
                 </div>
             </div>
         </div>
-
+ -->
     </div>
     {% if is_paginated %}
         <nav aria-label="Page navigation conatiner"></nav>
