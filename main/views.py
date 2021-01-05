@@ -26,7 +26,7 @@ class contact_view(View):
 			attached = request.FILES.getlist('attachments')
 
 			try:
-				email_body = "<html>You received a new message from the contact form. </ br></ br> Name:" + name + "</ br>Email Address:" + email + "</ br>Phone:" + phone + "</ br>Num of documents attached:" + attached.size() + "</ br>Message:" + message + "</html>"
+				email_body = "<html>You received a new message from the contact form. </ br></ br> Name:" + name + "</ br>Email Address:" + email + "</ br>Phone:" + phone + "</ br>Num of documents attached:" + str(len(attached)) + "</ br>Message:" + message + "</html>"
 				mail = EmailMessage("New Contact Form Message", email_body, email, ["SpruceEditing@gmail.com"])
 				mail.content_subtype = "html"
 				for f in attached:
@@ -60,7 +60,7 @@ class quote_view(View):
 			documents = request.FILES.getlist('documents')
 
 			try:
-				email_body = "<html>You received a new message from the contact form. </ br></ br> Name:" + name + "</ br>Email Address:" + email + "</ br>Type of Work:" + type_of_work + "</ br>Num of documents attached:" + documents.size() + "</ br>Details:" + details + "</html>"
+				email_body = "<html>You received a new message from the contact form. </ br></ br> Name:" + name + "</ br>Email Address:" + email + "</ br>Type of Work:" + type_of_work + "</ br>Num of documents attached:" + str(len(documents)) + "</ br>Details:" + details + "</html>"
 				mail = EmailMessage("New Contact Form Message", email_body, email, ["SpruceEditing@gmail.com"])
 				mail.content_subtype = "html"
 				for f in documents:
