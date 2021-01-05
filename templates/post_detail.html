@@ -2,6 +2,11 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<script type="text/javascript">
+  $('head').append('<meta name="description" content="{{ post.description }}">');
+  $('head').append('<meta name="keywords" content="{{ post.keywords }}">');
+</script>
+
 <div class="container blog_post">
   <div class="row">
           {% if error_message %}
