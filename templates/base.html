@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
         <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
         <meta name="author" content="Couragyn Chretien">
-        <link rel="shortcut icon" type="image/png" href="/media/logo.png"/>
+        <link rel="shortcut icon" type="image/png" href="/media/favicon.png"/>
 
 
     </head>
@@ -24,11 +24,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-fixed-top fixed-top navbar-expand-lg navbar-light bg-light shadow mb-3" id="mainNav">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'index' %}"><img  class="img-fluid" src="../media/logo_1.png" alt="Spruce & Polish Editing"></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand active" href="{% url 'index' %}"><img id="header_logo" class="img-fluid" src="../media/favicon.png" alt="Spruce & Polish Logo">      &nbsp;&nbsp;Spruce and Polish Editing</a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown text-black">

@@ -31,7 +31,7 @@ body {
 }
 
 .nav-link {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 
@@ -62,7 +62,7 @@ body, html {
 .hero-image {
   /* Set a specific height */
   height: 25%;
-  margin-top: 100px;
+  margin-top: 50px;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -75,11 +75,6 @@ body, html {
   width: 10%;
 }
 
-#index_hero {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("/media/1474612.jpg");
-  height: 30%;
-}
 #services_hero {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.5)), url("/media/services_hero.jpg");
@@ -113,4 +108,14 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+#header_logo {
+  height: 30px;
+}
+
+#index_logo {
+  margin-top: 60px;
+  height: 250px;
+  text-align: center;
 }
