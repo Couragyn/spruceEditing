@@ -77,7 +77,7 @@ body, html {
 
 #index_hero {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.5)), url("/media/index_hero.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("/media/1474612.jpg");
   height: 30%;
 }
 #services_hero {
