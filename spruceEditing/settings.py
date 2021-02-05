@@ -46,11 +46,14 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'main',
     'blog',
+    'pay',
     'crispy_forms',
     'django_summernote',
     'anymail',
     'fontawesome-free',
     'captcha',
+    'paypal.standard',
+    'paypal.pro',
 ]
 
 MIDDLEWARE = [
@@ -149,7 +152,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ('spruceediting.com', 'www.spruceediting.com', '127.0.0.1', 'localhost')
+ALLOWED_HOSTS = (env("ALLOWED_HOST_1"), env("ALLOWED_HOST_2"), '127.0.0.1', 'localhost')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -171,7 +174,13 @@ ANYMAIL = {
    "MAILGUN_SENDER_DOMAIN": os.environ.get('MAILGUN_DOMAIN', ''),
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
-DEFAULT_FROM_EMAIL = "SpruceEditing@gmail.com"
+DEFAULT_FROM_EMAIL = env("EMAIL")
 
 RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
+
+PAYPAL_TEST = env("PAYPAL_TEST")
+PAYPAL_WPP_USER = env("PAYPAL_WPP_USER")
+PAYPAL_WPP_PASSWORD = env("PAYPAL_WPP_PASSWORD")
+PAYPAL_WPP_SIGNATURE = env("PAYPAL_WPP_SIGNATURE")
+PAYPAL_RECEIVER_EMAIL = env("PAYPAL_EMAIL")
