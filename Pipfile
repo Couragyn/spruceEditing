@@ -16,6 +16,7 @@ django-mailgun = "*"
 django-anymail = "*"
 fontawesome-free = "*"
 django-recaptcha = "*"
+django-paypal = "*"
 
 [dev-packages]
 
