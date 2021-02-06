@@ -95,7 +95,7 @@ body, html {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.5)), url("/media/contact_hero.jpg");
 }
-#blog_hero {
+#pay_hero {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.5)), url("/media/blog_hero.jpg");
 }
@@ -118,4 +118,8 @@ body, html {
   margin-top: 60px;
   height: 250px;
   text-align: center;
+}
+
+.no_bullets {
+  list-style-type:none;"
 }

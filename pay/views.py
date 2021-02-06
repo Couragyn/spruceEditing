@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from paypal.pro.views import PayPalPro
 from django.views.decorators.csrf import csrf_exempt
 from .models import Pay
 from django.views import generic
