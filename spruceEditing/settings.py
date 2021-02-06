@@ -52,8 +52,7 @@ INSTALLED_APPS = [
     'anymail',
     'fontawesome-free',
     'captcha',
-    'paypal.standard',
-    'paypal.pro',
+    'paypal.standard.ipn',    
 ]
 
 MIDDLEWARE = [
