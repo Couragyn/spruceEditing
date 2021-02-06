@@ -36,4 +36,3 @@ class Pay(models.Model):
     paid = models.BooleanField(default=False)
     currency = models.IntegerField(choices=CURRENCY, default=0)
     description = models.CharField(max_length=200, default='Editing Services')
-

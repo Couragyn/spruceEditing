@@ -153,6 +153,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = (env("ALLOWED_HOST_1"), env("ALLOWED_HOST_2"), '127.0.0.1', 'localhost')
+ROOT_URL = env("ROOT_URL")
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

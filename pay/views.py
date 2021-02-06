@@ -9,24 +9,30 @@ from paypal.standard.forms import PayPalPaymentsForm
 
 def process_payment(request, id):
     order = get_object_or_404(Pay, id=id)
-    host = request.get_host()
 
-    paypal_dict = {
-        'business': settings.PAYPAL_RECEIVER_EMAIL,
-        'amount': str(order.amount),
-        'item_name': order.description,
-        'invoice': str(id),
-        'currency_code': order.get_currency_display(),
-        'notify_url': 'http://{}{}'.format(host,
-                                           reverse('paypal-ipn')),
-        'return_url': 'http://{}{}'.format(host,
-                                           reverse('payment_done')),
-        'cancel_return': 'http://{}{}'.format(host,
-                                              reverse('payment_cancelled')),
-    }
+    if order.paid == True:
+    	request.invoice = order.id
+    	return render(request, 'payment_done.html')
 
-    form = PayPalPaymentsForm(initial=paypal_dict)
-    return render(request, 'process_payment.html', {'order': order, 'form': form})
+    else:
+	    host = request.get_host()
+
+	    paypal_dict = {
+	        'business': settings.PAYPAL_RECEIVER_EMAIL,
+	        'amount': str(order.amount),
+	        'item_name': order.description,
+	        'invoice': str(id),
+	        'currency_code': order.get_currency_display(),
+	        'notify_url': 'http://{}{}'.format(host,
+	                                           reverse('paypal-ipn')),
+	        'return_url': 'http://{}{}'.format(host,
+	                                           reverse('payment_done')),
+	        'cancel_return': 'http://{}{}'.format(host,
+	                                              reverse('payment_cancelled')),
+	    }
+
+	    form = PayPalPaymentsForm(initial=paypal_dict)
+	    return render(request, 'process_payment.html', {'order': order, 'form': form})
 
 @csrf_exempt
 def payment_done(request):
