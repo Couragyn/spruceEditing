@@ -5,4 +5,4 @@ class PayConfig(AppConfig):
     name = 'pay'
 
     def ready(self):
-        import pay.signals
+        import pay.signal
