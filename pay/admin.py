@@ -5,9 +5,8 @@ from django.conf import settings
 
 @admin.register(Pay)
 class PayAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'amount', 'paid')
+    list_display = ('name', 'email', 'amount', 'paid', 'url_field')
     search_fields = ['name', 'email', 'guid']
-    readonly_fields = ('url_field',)
 
     def url_field(self, obj):
         return '{}{}/{}'.format(settings.ROOT_URL, 'pay', obj.id)
