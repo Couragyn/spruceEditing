@@ -16,13 +16,14 @@ def process_payment(request, id):
 
     else:
 	    host = request.get_host()
+	    order.currency_type = order.get_currency_display()
 
 	    paypal_dict = {
 	        'business': settings.PAYPAL_RECEIVER_EMAIL,
 	        'amount': str(order.amount),
 	        'item_name': order.description,
 	        'invoice': str(id),
-	        'currency_code': order.get_currency_display(),
+	        'currency_code': order.currency_type,
 	        'notify_url': 'http://{}{}'.format(host,
 	                                           reverse('paypal-ipn')),
 	        'return_url': 'http://{}{}'.format(host,
