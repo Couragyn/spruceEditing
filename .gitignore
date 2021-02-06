@@ -1,3 +1,4 @@
 .env
 /django/
 ngrok
+__pycache__/
