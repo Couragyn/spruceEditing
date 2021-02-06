@@ -12,9 +12,11 @@
             <div class="col-md-12 mt-3 float-left">
                 <div class="mb-5">           
                     <div class="card-body">
-						<h2 class="card-title">Thank you for your order</h2>
 						<div class="card-text">
 							<ul class="no_bullets">
+								<li>
+									<h2>Thank you for your order</h2>
+								</li>
 								<li>
 									Name: {{ order.name }}
 								</li>
@@ -30,8 +32,11 @@
 								<li>
 									ID: {{ order.id }}
 								</li>
+								<br/>
+								<li>
+									<strong>Click the button below to pay with PayPal</strong>
+								</li>
 							</ul>
-							<p>Click the button below to pay with paypal</p>
 							{{ form.render }}
 						</div>
 					</div>
