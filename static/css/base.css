@@ -74,6 +74,11 @@ body, html {
 .author {
   width: 10%;
 }
+#index_hero {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("/media/index_hero.jpg");
+  height: 30%;
+}
 
 #services_hero {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
@@ -97,7 +102,7 @@ body, html {
 }
 #pay_hero {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.5)), url("/media/blog_hero.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.5)), url("/media/pay_hero.jpg");
 }
 
 /* Place text in the middle of the image */
